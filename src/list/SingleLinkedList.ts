@@ -1,6 +1,6 @@
 import { List, Node } from "./List";
 
-class SingleNode<T> implements Node<T> {
+export class SingleNode<T> implements Node<T> {
   public value: T;
   public next: SingleNode<T> | null;
   constructor(value: T, next: SingleNode<T> = null) {
@@ -9,7 +9,7 @@ class SingleNode<T> implements Node<T> {
   }
 }
 
-class SingleLinkedList<T> implements List<T> {
+export class SingleLinkedList<T> implements List<T> {
   head: SingleNode<T> = null;
   constructor() {
     this.head = new SingleNode<T>(null);
@@ -199,34 +199,4 @@ class SingleLinkedList<T> implements List<T> {
   }
 }
 
-const singleLinkedList = new SingleLinkedList<number>();
-const singleLinkedList2 = new SingleLinkedList<number>();
-// const godNode = singleLinkedList.insertToTail("god");
-// const myNode = singleLinkedList.insertToTail("my");
-singleLinkedList.insertToTail(1);
-singleLinkedList.insertToTail(2);
-singleLinkedList.insertToTail(3);
-singleLinkedList.insertToTail(4);
 
-singleLinkedList2.insertToTail(10);
-singleLinkedList2.insertToTail(11);
-singleLinkedList2.insertToTail(12);
-singleLinkedList2.insertToTail(13);
-
-// console.log(singleLinkedList.printLinkedList())
-// singleLinkedList.insertToIndex("haha", 1);
-// singleLinkedList.removeByValue("my");
-// singleLinkedList.insertBefore("2222222", godNode);
-console.log(singleLinkedList.toString());
-console.log(singleLinkedList2.toString());
-// singleLinkedList.reverse();
-console.log("--------");
-let node = SingleLinkedList.merge(
-  singleLinkedList.head.next,
-  singleLinkedList2.head.next
-);
-
-while (node.next !== null) {
-  node = node.next;
-  console.log(node.value);
-}
